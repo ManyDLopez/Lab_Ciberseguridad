@@ -1,0 +1,26 @@
+#!/bin/bash
+
+host=$1
+firstport=$2
+lastport=$3
+
+function is_alive_ping() {
+        ping -c 1 $1 > /dev/null 2>&1
+        [ $? -eq 0 ] && echo "Node with IP: $i is up."
+        if [ $? -eq 1 ];
+        then
+        	echo "El comando anterior no funciono"
+        fi
+}
+for i in $1 .{1..255}
+do
+        is_alive_ping $i & disown
+done
+function portscan {
+        echo"Comprobando los puertos...."
+        for ((i=$firstport; i<=$lastport; i++))
+	do
+        	(echo >/dev/tcp/$host/$i) > /dev/null 2>&1 && echo "$i open"
+	done
+}
+portscan
