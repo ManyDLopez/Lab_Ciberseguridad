@@ -38,7 +38,7 @@ def connect_ftp(host:str, usr:str = '', pwd:str = '', save_path:str = '.'):
     #print(list_folder(connection, 'debian'))
     
 if __name__ == '__main__':
-    # connect_ftp('192.168.11.3', 8022)
-    #connect_ftp('ftp.us.debian.org', '/home/jhernandez')
+    # connect_ftp('192.168.56.1', 8022)
+    #connect_ftp('ftp.us.debian.org', '/home/manydlopez')
     connect_ftp('ftp.us.debian.org')
 
